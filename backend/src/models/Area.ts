@@ -1,6 +1,5 @@
 import { Column, Entity, JoinColumn, OneToMany, PrimaryColumn } from "typeorm";
 import { Actividad } from "./Actividad";
-import { Ejemplo } from "./Ejemplo/Ejemplo";
 
 @Entity()
 export class Area {
