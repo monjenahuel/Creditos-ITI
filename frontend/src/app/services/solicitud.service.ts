@@ -9,7 +9,7 @@ import { Solicitud } from '../models/Solicitud';
 })
 export class SolicitudService {
  
-  private url = 'http://localhost:3000/solicitud';
+  private url = 'http://localhost:3000/api/solicitud';
   private http = inject(HttpClient);
 
 

@@ -1,14 +1,13 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import * from '../../../.././.env';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConsultaService {
 
-  private url = 'http://localhost:3000/consulta';
+  private url = 'http://localhost:3000/api/consulta';
   private http = inject(HttpClient);
 
   constructor() { 

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  private dataUrl = 'http://localhost:3000/carrera';
+  private dataUrl = 'http://localhost:3000/api/carrera';
   private http = inject(HttpClient);
 
   getCarreras(): Observable<any>{
@@ -15,6 +15,6 @@ export class DataService {
   }
 
   getEstados(): Observable<any>{
-    return this.http.get('http://localhost:3000/estado');
+    return this.http.get('http://localhost:3000/api/estado');
   }
 }
