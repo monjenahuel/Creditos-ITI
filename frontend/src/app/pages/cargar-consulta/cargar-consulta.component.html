@@ -1,0 +1,51 @@
+<div class="container mt-4">
+    <form [formGroup]="formularioConsulta" (ngSubmit)="onSubmit()">
+        <mat-card>
+            <mat-card-header class="col-12 mb-4">
+                <mat-card-title>Consulta</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="row">
+
+                <mat-form-field appearance="fill" class="col-12 mb-4">
+                    <mat-label>DNI</mat-label>
+                    <input matInput formControlName="dni" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="col-sm-12 col-md-6 col-lg-6 mb-4">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombre" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="col-sm-12 col-md-6 col-lg-6 mb-4">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput formControlName="apellido" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="col-12 mb-4">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="col-12 mb-4">
+                    <mat-label>Carrera</mat-label>
+                    <mat-select formControlName="carrera" required>
+                        <mat-option *ngFor="let carrera of carreras" [value]="carrera">{{ carrera.nombre }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="col-12 mb-4">
+                    <mat-label>Consulta</mat-label>
+                    <textarea style="resize: none;" rows="6" matInput formControlName="consulta" required></textarea>
+                </mat-form-field>
+
+                <mat-checkbox (click)="openFAQ()" formControlName="check" required>Acepto haber leido las preguntas frecuentes antes de enviar mi consulta</mat-checkbox>
+
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!formularioConsulta.valid">Enviar consulta</button>
+            </mat-card-actions>
+
+        </mat-card>
+    </form>
+</div>

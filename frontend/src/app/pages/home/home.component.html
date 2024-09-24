@@ -1,0 +1,59 @@
+<div class="container">
+  <h1 class="title text-center mb-4">Bienvenido a Créditos App</h1>
+
+  <div class="row">
+    <div class="col-md-4 col-sm-12 mb-4 card-container">
+      <mat-card class="card">
+        <mat-card-header>
+          <div class="card-icon-container">
+            <mat-icon class="card-icon">upload</mat-icon>
+          </div>
+        </mat-card-header>
+        <mat-card-title>Cargar solicitud de créditos</mat-card-title>
+        <mat-card-content>
+          <p>Sube tu solicitud de crédito de manera rápida y sencilla.</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="navigateTo('/cargar-solicitud')" mat-flat-button color="primary">Cargar solicitud</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="col-md-4 col-sm-12 mb-4 card-container ">
+      <mat-card class="card">
+        <mat-card-header>
+          <div class="card-icon-container">
+            <mat-icon class="card-icon">search</mat-icon>
+          </div>
+        </mat-card-header>
+        <mat-card-title>Realizar una consulta</mat-card-title>
+        <mat-card-content>
+          <p>Realiza una consulta sobre tu solicitud de crédito.</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="navigateTo('/cargar-consulta')" mat-flat-button color="primary">Realizar consulta</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="col-md-4 col-sm-12 mb-4 card-container ">
+      <mat-card class="card">
+        <mat-card-header>
+          <div class="card-icon-container">
+            <mat-icon class="card-icon">assignment</mat-icon>
+          </div>
+        </mat-card-header>
+        <mat-card-title>Seguimiento de solicitudes</mat-card-title>
+        <mat-card-content>
+          <p>Mantente al tanto del estado de tu solicitud de crédito.</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-flat-button color="primary">Ver seguimiento</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <app-faq></app-faq>
+  
+</div>

@@ -1,0 +1,23 @@
+<div class="container p-3">
+  <h1>Cambiar estado</h1>
+
+  <mat-form-field class="col-12">
+    <mat-label>Estado</mat-label>
+    <mat-select [(ngModel)]="estado">
+      <mat-option *ngFor="let estado of estados" [value]="estado">
+        {{estado.descripcion}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="col-12" *ngIf="estado?.descripcion == 'Rechazada'">
+    <mat-label>Motivo de resolucion</mat-label>
+    <textarea [(ngModel)]="motivo_resolucion" matInput placeholder="Motivo de resolucion"></textarea>
+  </mat-form-field>
+
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="reject()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" (click)="accept()">Guardar</button>
+</mat-dialog-actions>

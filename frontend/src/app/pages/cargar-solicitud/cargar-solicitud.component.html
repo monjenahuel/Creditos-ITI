@@ -1,0 +1,61 @@
+<div class="container mt-4">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-header class="col-12 mb-4">
+        <mat-card-title>Solicitud de Creditos</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="row">
+
+        <mat-form-field appearance="fill" class="col-12 mb-4">
+          <mat-label>DNI</mat-label>
+          <input matInput formControlName="dni" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-sm-12 col-md-6 col-lg-6 mb-4">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="nombre" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-sm-12 col-md-6 col-lg-6 mb-4">
+          <mat-label>Apellido</mat-label>
+          <input matInput formControlName="apellido" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-12 mb-4">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-12 mb-4">
+          <mat-label>Carrera</mat-label>
+          <mat-select formControlName="carrera" required (selectionChange)="handleCarreraChange()">
+            <mat-option *ngFor="let carrera of carreras" [value]="carrera">{{ carrera.nombre }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-sm-12 col-md-6 col-lg-6 mb-4">
+          <mat-label>Area</mat-label>
+          <mat-select formControlName="area" required (selectionChange)="handleAreaChange($event)">
+            <mat-option *ngFor="let area of areas" [value]="area">{{ area.descripcion }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-sm-12 col-md-6 col-lg-6 mb-4">
+          <mat-label>Actividad</mat-label>
+          <mat-select formControlName="actividad" required (selectionChange)="handleActividadChange($event)">
+            <mat-option *ngFor="let actividad of actividades" [value]="actividad">{{actividad.cod }} {{actividad.descripcion }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Constancia</label>
+          <input formControlName="constancia" class="form-control" type="file" id="formFile" accept=".pdf,.jpeg,.png,.jpg " (change)="onFileSelected($event)">
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!formulario.valid">Enviar</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
