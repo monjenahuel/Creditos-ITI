@@ -1,0 +1,162 @@
+{
+  "carreras": [
+    {
+      "id": 1,
+      "nombre": "Tecnicatura Universitaria en Redes y Operaciones"
+    },
+    {
+      "id": 2,
+      "nombre": "Tecnicatura Universitaria en Programacion"
+    },
+    {
+      "id": 3,
+      "nombre": "Tecnicatura Universitaria en Videojuegos"
+    },
+    {
+      "id": 4,
+      "nombre": "Tecnicatura Universitaria en Inteligencia Artificial"
+    }
+  ],
+  "areas": [
+    {
+      "codigo": "CR1_033",
+      "nombre": "Espacio de Integración Curricular / Proyecto de softwere",
+      "actividades": [
+        {
+          "codigo": "CR012_33",
+          "nombre": "Desarrollo de Aplicaciones, en UNAHUR (Programación)",
+          "carreras":[ "Tecnicatura Universitaria en Programacion"]
+        },
+        {
+          "codigo": "CR012_34",
+          "nombre": "Desarrollo de Aplicaciones, en UNAHUR (Redes)",
+          "carreras":[ "Tecnicatura Universitaria en Redes y Operaciones"]
+        },
+        {
+          "codigo": "CR011_033",
+          "nombre": "Desarrollo de Práctica Profesional Supervisada (PPS) (Programación)",
+          "carreras":[ "Tecnicatura Universitaria en Programacion"]
+        },
+        {
+          "codigo": "CR011_034",
+          "nombre": "Desarrollo de Práctica Profesional Supervisada (PPS) (Redes)",
+          "carreras":[ "Tecnicatura Universitaria en Redes y Operaciones"]
+        }
+      ]
+    },
+    {
+      "codigo": "CR2_ITI",
+      "nombre": "Actividades de tipo formativas académicas y profesionales",
+      "actividades": [
+        {
+          "codigo": "CR002",
+          "nombre": "Participación como asistente en Jornadas / Workshops / Congresos"
+        },
+        {
+          "codigo": "CR003",
+          "nombre": "Talleres especiales - Taller de Github"
+        },
+        {
+          "codigo": "CR013",
+          "nombre": "Talleres especiales - Taller de Gestión de la seguridad informática"
+        },
+        {
+          "codigo": "CR014",
+          "nombre": "Talleres Especiales - Gestión de Firewall"
+        },
+        {
+          "codigo": "CR015",
+          "nombre": "Participación en Competencias Estudiantiles - Rally Innovación 2023"
+        },
+        {
+          "codigo": "CR017",
+          "nombre": "Participación como asistente en Jornadas / Workshops / Congresos (1 día)"
+        },
+        {
+          "codigo": "CR018",
+          "nombre": "Talleres Especiales - Curso de Iniciación al Mundo Laboral"
+        },
+        {
+          "codigo": "CR021",
+          "nombre": "Participación en Proyectos Abiertos"
+        },
+        {
+          "codigo": "CR023",
+          "nombre": "Intercambios estudiantiles presenciales y/o virtuales"
+        },
+        {
+          "codigo": "CR024",
+          "nombre": "Formación Profesional"
+        },
+        {
+          "codigo": "CR027",
+          "nombre": "Taller de Procesamiento digital de imágenes"
+        },
+        {
+          "codigo": "CR004",
+          "nombre": "Talleres Especiales (más de 32hs)"
+        }
+      ]
+    },
+    {
+      "codigo": "CR3_ITI",
+      "nombre": "Actividades de tipo sociales, culturales y deportivas en la Universidad",
+      "actividades": [
+        {
+          "codigo": "CR005",
+          "nombre": "Voluntariados"
+        },
+        {
+          "codigo": "CR006",
+          "nombre": "Talleres deportivos"
+        },
+        {
+          "codigo": "CR019",
+          "nombre": "UNAHUR@TIC - 1er Presencia - Encuentro de Informática"
+        },
+        {
+          "codigo": "CR020",
+          "nombre": "UNAHUR@TIC - 1er Presencia - Encuentro de Informática (medio día)"
+        },
+        {
+          "codigo": "CR028",
+          "nombre": "UNAHUR@TIC - 2da presencia - Encuentro de Informática"
+        },
+        {
+          "codigo": "CR022",
+          "nombre": "Taller de eSport"
+        },
+        {
+          "codigo": "CR007",
+          "nombre": "Talleres Culturales"
+        }
+      ]
+    },
+    {
+      "codigo": "CR4_ITI",
+      "nombre": "Actividades de tipo formativas en docencia e investigación",
+      "actividades": [
+        {
+          "codigo": "CR008",
+          "nombre": "Participación en el programa 'Un estudiantes/Un compañero/a'"
+        },
+        {
+          "codigo": "CR009",
+          "nombre": "Participación como Estudiante Asistente"
+        },
+        {
+          "codigo": "CR025",
+          "nombre": "Participación en actividades de difusión académica"
+        },
+        {
+          "codigo": "CR016_033",
+          "nombre": "Asistencia Técnica a grupos de Investigación de la Universidad"
+        },
+        {
+          "codigo": "CR010",
+          "nombre": "Colaboración en materias"
+        }
+      ]
+    }
+  ]
+}
