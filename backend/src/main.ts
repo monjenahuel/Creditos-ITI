@@ -9,6 +9,7 @@ async function bootstrap() {
     transform: true  // Convierte los tipos de datos a los especificados en el DTO
   }));
   app.enableCors();
+  app.setGlobalPrefix('api');
   await app.listen(3000);
 }
 bootstrap();
