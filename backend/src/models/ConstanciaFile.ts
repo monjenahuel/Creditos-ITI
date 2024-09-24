@@ -6,7 +6,7 @@ export class ConstanciaFile {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
-    @Column({type: 'mediumblob'})
+    @Column({type: 'blob'})
     blob: Buffer;
 
     @Column()

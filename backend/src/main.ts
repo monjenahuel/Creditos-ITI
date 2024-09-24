@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { MigrationService } from './migration/migration.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -10,6 +11,10 @@ async function bootstrap() {
   }));
   app.enableCors();
   app.setGlobalPrefix('api');
+
+  const seedService = app.get(MigrationService);
+  await seedService.seed(); 
+
   await app.listen(3000);
 }
 bootstrap();

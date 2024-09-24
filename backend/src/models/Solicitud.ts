@@ -12,7 +12,7 @@ export class Solicitud {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
-    @Column({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
+    @Column({type: 'datetime', default: () => 'CURRENT_TIMESTAMP'})
     fecha: Date;
 
     @ManyToOne(() => Estudiante, estudiante => estudiante.solicitudes)

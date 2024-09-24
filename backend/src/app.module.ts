@@ -21,6 +21,7 @@ import { EstadoService } from './services/estado/estado.service';
 import { EstadoController } from './controllers/estado/estado.controller';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { MigrationService } from './migration/migration.service';
 
 @Module({
   imports: [
@@ -31,6 +32,6 @@ import { join } from 'path';
     })
   ],
   controllers: [ConsultaController, CarreraController, SolicitudController, EstadoController],
-  providers: [SolicitudService,ConsultaService, CarreraService,EstudianteService, EstadoService],
+  providers: [SolicitudService,ConsultaService, CarreraService,EstudianteService, EstadoService, MigrationService],
 })
 export class AppModule {}

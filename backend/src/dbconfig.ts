@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv';
 import { join } from 'path';
 
-dotenv.config({ path: join(__dirname, '..', '..' , '.env')});
+dotenv.config({ path: join(__dirname, '..', '..' , '.envDemo')});
 
 export const dbConfig = {
   type: process.env.DB_TYPE as any,
