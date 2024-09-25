@@ -14,11 +14,11 @@ export class MigrationService {
     ) { }
 
     async seed() {
-        this.insertCarreras();
-        this.insertEstados();
-        this.insertAreas();
-        this.insertActividades();
-        this.insertCarreraActividad();
+        await this.insertCarreras();
+        await this.insertEstados();
+        await this.insertAreas();
+        await this.insertActividades();
+        await this.insertCarreraActividad();
     }
 
     async insertCarreras() {
@@ -142,12 +142,21 @@ export class MigrationService {
                 { cod: 'CR010', descripcion: 'Colaboración en materias', areaCod: 'CR4_ITI' },
             ];
 
-            await this.dataSource
-                .createQueryBuilder()
-                .insert()
-                .into(Actividad) // Cambia esto por tu entidad real
-                .values(records)
-                .execute();
+            // Usar consultas nativas para insertar registros
+            const insertQuery = `
+              INSERT INTO actividad (cod, descripcion, areaCod) VALUES
+              (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?),
+              (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?),
+              (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?),
+              (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?),
+              (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?)
+            `;
+
+            // Convertir el arreglo de registros a un formato adecuado
+            const params = records.flatMap(record => [record.cod, record.descripcion, record.areaCod]);
+
+            await this.dataSource.query(insertQuery, params);
+
 
             console.log("SEEDER: Actividades insertadas");
         }
@@ -160,7 +169,7 @@ export class MigrationService {
             .select('COUNT(*)', 'count')
             .from('carrera_actividad', 'table')
             .getRawOne();
-        
+
         const count = Number(countResult.count)
 
         if (count === 0) { // Solo insertar si la tabla está vacía

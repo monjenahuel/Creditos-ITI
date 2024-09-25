@@ -69,12 +69,11 @@ export class DialogCambiarEstadoComponent {
 
     this.solicitudService.cambiarEstadoSolicitud(this.data.sol_id, body).subscribe({
       next: (response : any) => {
-        console.log(response);
-        this.dialogRef.close(body);
+        console.log("Respuesta del servidor", response);
       },
     });
 
-
+    this.dialogRef.close(body);
   }
 
   reject() {
