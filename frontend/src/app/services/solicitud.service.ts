@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class SolicitudService {
- 
+
   private url = environment.apiUrl
   private http = inject(HttpClient);
 
@@ -25,6 +25,10 @@ export class SolicitudService {
 
   getSolicitudByEstadoId(estadoId: number): Observable<any>{
     return this.http.get(`${this.url}/solicitud/estado/${estadoId}`);
+  }
+
+  getSolicitudByDni(dni: number): Observable<any>{ 
+    return this.http.get(`${this.url}/solicitud/dni/${dni}`);
   }
 
   downloadConstanciaBySolicitudId(id: string) {
