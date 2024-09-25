@@ -1,0 +1,56 @@
+import { __decorate, __param } from "tslib";
+import { CommonModule } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+let DialogCambiarEstadoComponent = class DialogCambiarEstadoComponent {
+    constructor(dialogRef, data, dataService, solicitudService) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.dataService = dataService;
+        this.solicitudService = solicitudService;
+        this.estados = [];
+        this.dataService.getEstados().subscribe({
+            next: (estados) => {
+                this.estados = estados;
+                this.estado = this.estados.find((estado) => estado.id == data.estado.id);
+                this.motivo_resolucion = data.motivo_resolucion;
+            }
+        });
+    }
+    ngOnInit() { }
+    accept() {
+        const body = { estado: this.estado, motivo_resolucion: this.motivo_resolucion };
+        console.log("Body a enviar", body);
+        if (this.estado?.descripcion != "Rechazada") {
+            console.log("Estado no es rechazada");
+            body.motivo_resolucion = undefined;
+        }
+        this.solicitudService.cambiarEstadoSolicitud(this.data.sol_id, body).subscribe({
+            next: (response) => {
+                console.log("Respuesta del servidor", response);
+            },
+        });
+        this.dialogRef.close(body);
+    }
+    reject() {
+        this.dialogRef.close();
+    }
+};
+DialogCambiarEstadoComponent = __decorate([
+    Component({
+        selector: 'app-dialog-cambiar-estado',
+        standalone: true,
+        imports: [MatDialogModule, MatButtonModule, MatExpansionModule, CommonModule, MatFormFieldModule, MatSelectModule, FormsModule, MatInputModule],
+        templateUrl: './dialog-cambiar-estado.component.html',
+        styleUrl: './dialog-cambiar-estado.component.css'
+    }),
+    __param(1, Inject(MAT_DIALOG_DATA))
+], DialogCambiarEstadoComponent);
+export { DialogCambiarEstadoComponent };
+//# sourceMappingURL=dialog-cambiar-estado.component.js.map

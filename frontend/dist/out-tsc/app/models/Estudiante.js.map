@@ -1,0 +1,1 @@
+{"version":3,"file":"Estudiante.js","sourceRoot":"","sources":["../../../../src/app/models/Estudiante.ts"],"names":[],"mappings":"AAAA,MAAM,OAAO,UAAU;IAMnB,YAAY,GAAW,EAAE,MAAc,EAAE,QAAgB,EAAE,KAAa;QACpE,IAAI,CAAC,GAAG,GAAG,GAAG,CAAC;QACf,IAAI,CAAC,MAAM,GAAG,MAAM,CAAC;QACrB,IAAI,CAAC,QAAQ,GAAG,QAAQ,CAAC;QACzB,IAAI,CAAC,KAAK,GAAG,KAAK,CAAC;IACvB,CAAC;CACJ"}
