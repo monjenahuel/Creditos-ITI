@@ -16,6 +16,6 @@ export class ConsultaService {
   }
 
   postConsulta(consulta: any): Observable<any>{
-    return this.http.post(this.url + '/consulta', consulta);
+    return this.http.post(`${this.url}/consulta`, consulta);
   }
 }

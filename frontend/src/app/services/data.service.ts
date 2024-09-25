@@ -12,10 +12,10 @@ export class DataService {
   private http = inject(HttpClient);
 
   getCarreras(): Observable<any>{
-    return this.http.get(this.dataUrl+'/carrera');
+    return this.http.get(`${this.dataUrl}/carrera`);
   }
 
   getEstados(): Observable<any>{
-    return this.http.get(this.dataUrl+'/estado');
+    return this.http.get(`${this.dataUrl}/estado`);
   }
 }
