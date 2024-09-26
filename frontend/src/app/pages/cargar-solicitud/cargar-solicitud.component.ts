@@ -39,28 +39,17 @@ export class CargarSolicitudComponent {
     private router: Router
   ) {
 
-    // this.formulario = this.fb.group({
-    //   dni: ['', [Validators.required, Validators.pattern(/^\d{7,8}$/)]],
-    //   nombre: ['', Validators.required],
-    //   apellido: ['', Validators.required],
-    //   email: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-ñÑ]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
-    //   area: [null, Validators.required],
-    //   carrera: [null, Validators.required],
-    //   actividad: [null, Validators.required],
-    //   constancia: [null, Validators.required]
-    // });
-
-    // TODO: Mock
     this.formulario = this.fb.group({
-      dni: ['40510531', [Validators.required, Validators.pattern(/^\d{7,8}$/)]],
-      nombre: ['Nahuel', Validators.required],
-      apellido: ['Monje', Validators.required],
-      email: ['email@email.com', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-ñÑ]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
-      area: ['', Validators.required],
-      carrera: ['', Validators.required],
-      actividad: ['', Validators.required],
+      dni: ['', [Validators.required, Validators.pattern(/^\d{7,8}$/)]],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      email: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-ñÑ]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
+      area: [null, Validators.required],
+      carrera: [null, Validators.required],
+      actividad: [null, Validators.required],
       constancia: [null, Validators.required]
     });
+
   }
 
   ngOnInit(): void {
@@ -76,20 +65,20 @@ export class CargarSolicitudComponent {
     const file: File = event.target.files[0];
     console.log(file);
 
-    if (file && this.fileValidType(file.type) ) {
+    if (file && this.fileValidType(file.type)) {
       this.selectedFile = file;
-    }else{
+    } else {
       console.error("El archivo seleccionado no es un formato valido")
       this.formulario.get('constancia')?.setValue(null);
-      this.formulario.get('constancia')?.setErrors({invalidFileType: true});
+      this.formulario.get('constancia')?.setErrors({ invalidFileType: true });
     }
 
   }
 
   fileValidType(type: string): boolean {
-    return  type === "application/pdf" || 
-            type === "image/jpeg" ||
-            type === "image/png"
+    return type === "application/pdf" ||
+      type === "image/jpeg" ||
+      type === "image/png"
   }
 
   onSubmit(): void {
@@ -119,46 +108,46 @@ export class CargarSolicitudComponent {
     }
   }
 
-    handleCarreraChange() {
-      this.filtrarActividadesByCarrera()
-      this.filtrarAreasPorCarrera()
-    }
+  handleCarreraChange() {
+    this.filtrarActividadesByCarrera()
+    this.filtrarAreasPorCarrera()
+  }
 
-    handleAreaChange(event: any): void {
-      const selectedArea = event.value;
-      this.filtrarActividadesByArea(selectedArea)
-    }
+  handleAreaChange(event: any): void {
+    const selectedArea = event.value;
+    this.filtrarActividadesByArea(selectedArea)
+  }
 
-    handleActividadChange(event: any): void {
-      const selectedActividad = event.value;
+  handleActividadChange(event: any): void {
+    const selectedActividad = event.value;
 
-      //Busca y selecciona el area con el mismo codigo que el de la actividad seleccionada
-      this.formulario.get('area')?.setValue(this.areas.find((area: Area) => area.cod === selectedActividad.area.cod));
-    }
+    //Busca y selecciona el area con el mismo codigo que el de la actividad seleccionada
+    this.formulario.get('area')?.setValue(this.areas.find((area: Area) => area.cod === selectedActividad.area.cod));
+  }
 
-    filtrarAreasPorCarrera(): void {
-      const areasConRepetidos: Area[] = this.formulario.get('carrera')?.value.actividades.map((actividad: Actividad) => actividad.area)
+  filtrarAreasPorCarrera(): void {
+    const areasConRepetidos: Area[] = this.formulario.get('carrera')?.value.actividades.map((actividad: Actividad) => actividad.area)
 
     const codigosDeArea = new Set<string>();
-      this.areas = []
+    this.areas = []
 
     areasConRepetidos.forEach((area: Area) => {
-        if (!codigosDeArea.has(area.cod)) {
-          codigosDeArea.add(area.cod) //Añade el codigo al set para no volver a repetir el area
-          this.areas.push(area) //Añade el area al array de areas
-        }
+      if (!codigosDeArea.has(area.cod)) {
+        codigosDeArea.add(area.cod) //Añade el codigo al set para no volver a repetir el area
+        this.areas.push(area) //Añade el area al array de areas
       }
-      )
     }
+    )
+  }
 
-    filtrarActividadesByArea(area: Area): void {
-      this.formulario.get('actividad')?.setValue('')
+  filtrarActividadesByArea(area: Area): void {
+    this.formulario.get('actividad')?.setValue('')
     this.actividades = this.formulario.get('carrera')?.value.actividades.filter((actividad: Actividad) => actividad.area.cod === area.cod)
-    }
+  }
 
-    filtrarActividadesByCarrera(): void {
+  filtrarActividadesByCarrera(): void {
 
-      if(this.formulario.get('carrera')?.value) {
+    if (this.formulario.get('carrera')?.value) {
       // Asegúrate de que el valor no es un string vacío, null o undefined
       console.log("Filtrando por Carrera");
 
