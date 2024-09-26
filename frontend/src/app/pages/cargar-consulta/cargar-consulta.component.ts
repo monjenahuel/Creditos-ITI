@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -38,28 +38,17 @@ export class CargarConsultaComponent {
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-ñÑ]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
-      carrera: ['', Validators.required],
+      carrera: [null, Validators.required],
       consulta: ['', [Validators.required, Validators.minLength(20), Validators.maxLength(1500)]],
       check: [false, Validators.required],
     });
 
-    //TODO: Mock
-    this.formularioConsulta = this.fb.group({
-      dni: ['40510531', [Validators.required, Validators.pattern(/^\d{7,8}$/)]],
-      nombre: ['Ricardo', Validators.required],
-      apellido: ['Darin', Validators.required],
-      email: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-ñÑ]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
-      carrera: ['', Validators.required],
-      consulta: ['Sint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ipSint dolore irure ip', [Validators.required, Validators.minLength(20), Validators.maxLength(1500)]],
-      check: [false, Validators.required],
-    });
   }
 
   ngOnInit(): void {
 
     this.dataService.getCarreras().subscribe((carreras: Carrera[]) => {
       this.carreras = carreras;
-      this.formularioConsulta.patchValue({ carrera: carreras[0] }); //TODO: Que pasa si saco esto?
     },);
 
 

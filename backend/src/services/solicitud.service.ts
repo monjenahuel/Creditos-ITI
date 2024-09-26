@@ -54,6 +54,15 @@ export class SolicitudService {
         return this.solicitudRepository.find({where: {estado}, relations: ['estudiante', 'carrera', 'actividad', 'estado']});
     }
 
+    async getSolicitudesByDNI(dni: number): Promise<Solicitud[]> {
+            
+            let estudiante: Estudiante = await this.estudianteRepository.findOneBy({dni});
+
+            let result = estudiante! ? await this.solicitudRepository.find({where: {estudiante}, relations: ['estudiante', 'carrera', 'actividad', 'estado'], order: {id: 'DESC'}}) : [];
+    
+            return result
+    }
+
     async formDataToSolicitud(body: any, file: Express.Multer.File): Promise<Solicitud> {
 
         console.log("Armando solicitud")

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
@@ -28,7 +28,7 @@ export class NavbarComponent {
     this.router.navigate(['/home']);
   }
 
-  goCustom(){
-    this.router.navigate(['/gestion-solicitudes']);
+  goLogin(){
+    console.log("Funcionalidad a desarrollar")
   }
 }

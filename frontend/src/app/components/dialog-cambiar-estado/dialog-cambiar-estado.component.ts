@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { FaqComponent } from "../faq/faq.component";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { DataService } from '../../services/data.service';
@@ -69,11 +68,12 @@ export class DialogCambiarEstadoComponent {
 
     this.solicitudService.cambiarEstadoSolicitud(this.data.sol_id, body).subscribe({
       next: (response : any) => {
-        console.log("Respuesta del servidor", response);
+        console.log(response);
       },
     });
-
+    
     this.dialogRef.close(body);
+
   }
 
   reject() {

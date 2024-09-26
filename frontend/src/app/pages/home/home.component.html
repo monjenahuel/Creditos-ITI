@@ -2,7 +2,7 @@
   <h1 class="title text-center mb-4">Bienvenido a Créditos App</h1>
 
   <div class="row">
-    <div class="col-md-4 col-sm-12 mb-4 card-container">
+    <div class="col-md-3 col-sm-12 mb-4 card-container">
       <mat-card class="card">
         <mat-card-header>
           <div class="card-icon-container">
@@ -19,7 +19,7 @@
       </mat-card>
     </div>
 
-    <div class="col-md-4 col-sm-12 mb-4 card-container ">
+    <div class="col-md-3 col-sm-12 mb-4 card-container ">
       <mat-card class="card">
         <mat-card-header>
           <div class="card-icon-container">
@@ -36,7 +36,7 @@
       </mat-card>
     </div>
 
-    <div class="col-md-4 col-sm-12 mb-4 card-container ">
+    <div class="col-md-3 col-sm-12 mb-4 card-container ">
       <mat-card class="card">
         <mat-card-header>
           <div class="card-icon-container">
@@ -48,7 +48,24 @@
           <p>Mantente al tanto del estado de tu solicitud de crédito.</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-flat-button color="primary">Ver seguimiento</button>
+          <button (click)="navigateTo('/seguimiento-solicitudes')" mat-flat-button color="primary">Ver seguimiento</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="col-md-3 col-sm-12 mb-4 card-container ">
+      <mat-card class="card">
+        <mat-card-header>
+          <div class="card-icon-container">
+            <mat-icon class="card-icon">key</mat-icon>
+          </div>
+        </mat-card-header>
+        <mat-card-title>Gestion de solicitudes</mat-card-title>
+        <mat-card-content>
+          <p>Gestionar solicitudes de los alumnos</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="navigateTo('/gestion-solicitudes')" mat-flat-button color="primary">Gestionar solicitudes</button>
         </mat-card-actions>
       </mat-card>
     </div>

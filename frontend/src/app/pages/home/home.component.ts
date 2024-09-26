@@ -34,9 +34,6 @@ export class HomeComponent {
     this.router.navigate([route]);
   }
 
-  test() {
-    console.log('test');
-  }
 }
 
 

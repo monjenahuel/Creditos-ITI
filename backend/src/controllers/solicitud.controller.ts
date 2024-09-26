@@ -56,6 +56,11 @@ export class SolicitudController {
     return this.solicitudService.getSolicitudesByEstado(id);
   }
 
+  @Get('/dni/:dni')
+  getSolicitudesByDNI(@Param('dni') dni: number): Promise<Solicitud[]> {
+    return this.solicitudService.getSolicitudesByDNI(dni);
+  }
+
   
 
 
